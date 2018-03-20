@@ -1,0 +1,143 @@
+﻿namespace KRDLab1
+{
+    partial class FormShowData
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.dataGridViewDatas = new System.Windows.Forms.DataGridView();
+            this.columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnStreet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatas)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonAdd.Location = new System.Drawing.Point(56, 37);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(100, 45);
+            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.Text = "Dodaj";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonEdit.Location = new System.Drawing.Point(295, 37);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(100, 45);
+            this.buttonEdit.TabIndex = 1;
+            this.buttonEdit.Text = "Edytuj";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonRemove.Location = new System.Drawing.Point(539, 37);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(100, 45);
+            this.buttonRemove.TabIndex = 2;
+            this.buttonRemove.Text = "Usuń";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(55, 93);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(584, 22);
+            this.textBoxSearch.TabIndex = 3;
+            // 
+            // dataGridViewDatas
+            // 
+            this.dataGridViewDatas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDatas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnName,
+            this.columnSurname,
+            this.columnStreet});
+            this.dataGridViewDatas.Location = new System.Drawing.Point(56, 146);
+            this.dataGridViewDatas.Name = "dataGridViewDatas";
+            this.dataGridViewDatas.RowTemplate.Height = 24;
+            this.dataGridViewDatas.Size = new System.Drawing.Size(583, 330);
+            this.dataGridViewDatas.TabIndex = 4;
+            // 
+            // columnName
+            // 
+            this.columnName.HeaderText = "Imie";
+            this.columnName.Name = "columnName";
+            this.columnName.Width = 180;
+            // 
+            // columnSurname
+            // 
+            this.columnSurname.HeaderText = "Nazwisko";
+            this.columnSurname.Name = "columnSurname";
+            this.columnSurname.Width = 180;
+            // 
+            // columnStreet
+            // 
+            this.columnStreet.HeaderText = "Ulica";
+            this.columnStreet.Name = "columnStreet";
+            this.columnStreet.Width = 180;
+            // 
+            // FormShowData
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(685, 530);
+            this.Controls.Add(this.dataGridViewDatas);
+            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.buttonRemove);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonAdd);
+            this.Name = "FormShowData";
+            this.Text = "SiteTitle";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatas)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.DataGridView dataGridViewDatas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnStreet;
+    }
+}
+
