@@ -1,1 +1,12 @@
 c:\users\lenovo\documents\visual studio 2015\Projects\KRDLab1\KRDLab1\bin\Debug\KRDLab1.exe.config
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\bin\Debug\KRDLab1.exe.config
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.AddModify.resources
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.ShowData.resources
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.Menu.resources
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.Properties.Resources.resources
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.csproj.GenerateResource.Cache
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\bin\Debug\KRDLab1.exe
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\bin\Debug\KRDLab1.pdb
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.exe
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.pdb

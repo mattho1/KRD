@@ -1,6 +1,6 @@
 ﻿namespace KRDLab1
 {
-    partial class FormShowData
+    partial class ShowData
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +32,11 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.dataGridViewDatas = new System.Windows.Forms.DataGridView();
+            this.dataGridViewData = new System.Windows.Forms.DataGridView();
             this.columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnStreet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -74,23 +74,24 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(55, 93);
+            this.textBoxSearch.Location = new System.Drawing.Point(55, 118);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(584, 22);
             this.textBoxSearch.TabIndex = 3;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
-            // dataGridViewDatas
+            // dataGridViewData
             // 
-            this.dataGridViewDatas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDatas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnName,
             this.columnSurname,
             this.columnStreet});
-            this.dataGridViewDatas.Location = new System.Drawing.Point(56, 146);
-            this.dataGridViewDatas.Name = "dataGridViewDatas";
-            this.dataGridViewDatas.RowTemplate.Height = 24;
-            this.dataGridViewDatas.Size = new System.Drawing.Size(583, 330);
-            this.dataGridViewDatas.TabIndex = 4;
+            this.dataGridViewData.Location = new System.Drawing.Point(56, 146);
+            this.dataGridViewData.Name = "dataGridViewData";
+            this.dataGridViewData.RowTemplate.Height = 24;
+            this.dataGridViewData.Size = new System.Drawing.Size(583, 330);
+            this.dataGridViewData.TabIndex = 4;
             // 
             // columnName
             // 
@@ -110,19 +111,19 @@
             this.columnStreet.Name = "columnStreet";
             this.columnStreet.Width = 180;
             // 
-            // FormShowData
+            // ShowData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 530);
-            this.Controls.Add(this.dataGridViewDatas);
+            this.Controls.Add(this.dataGridViewData);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonAdd);
-            this.Name = "FormShowData";
+            this.Name = "ShowData";
             this.Text = "SiteTitle";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,7 +135,7 @@
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.DataGridView dataGridViewDatas;
+        private System.Windows.Forms.DataGridView dataGridViewData;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnStreet;

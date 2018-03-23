@@ -12,9 +12,16 @@ namespace KRDLab1
 {
     public partial class Menu : Form
     {
+        ShowData windowShowData;
         public Menu()
         {
             InitializeComponent();
+        }
+
+        private void buttonManageUsers_Click(object sender, EventArgs e)
+        {
+            windowShowData = new ShowData();
+            windowShowData.ShowDialog();
         }
     }
 }

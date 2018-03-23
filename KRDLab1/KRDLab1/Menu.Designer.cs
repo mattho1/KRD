@@ -40,6 +40,7 @@
             this.buttonManageUsers.TabIndex = 0;
             this.buttonManageUsers.Text = "Zarządzaj użytkownikami";
             this.buttonManageUsers.UseVisualStyleBackColor = true;
+            this.buttonManageUsers.Click += new System.EventHandler(this.buttonManageUsers_Click);
             // 
             // Menu
             // 
