@@ -16,7 +16,7 @@ namespace KRDLab1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShowData());
+            Application.Run(new Menu());
         }
     }
 }

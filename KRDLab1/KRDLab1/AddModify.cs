@@ -12,26 +12,55 @@ namespace KRDLab1
 {
     public partial class AddModify : Form
     {
-        User user;
-        public AddModify(User _user)
+        List<User> userList;
+        int position;
+        bool isModifyWindow;
+        String nameFileWithData = "users.xml";
+        public AddModify(List<User> _userList, int? _number)
         {
             InitializeComponent();
-            user = _user;
-            if(_user != null)
+            userList = _userList;
+            decideWhetherToAddOrModify(_number);
+        }
+        private void decideWhetherToAddOrModify(int? _number)
+        {
+            if (_number != null)
             {
+                position = (int)_number;
                 fillFields();
+                buttonAddOrModify.Text = "Modyfikuj";
+                isModifyWindow = true;
+            }
+            else
+            {
+                buttonAddOrModify.Text = "Dodaj";
+                isModifyWindow = false;
             }
         }
-
         private void buttonAddOrModify_Click(object sender, EventArgs e)
         {
-
+            if (isModifyWindow)
+            {
+                User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text);
+                XMLFile.UpdateUserInXMLFile(nameFileWithData, userList[position], user);
+                userList[position] = user;
+                MessageBox.Show("Zmieniono dane użytkownika");
+                Close();
+            }
+            else
+            {
+                User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text);
+                XMLFile.AddUserToXMLFile(nameFileWithData, user);
+                userList.Add(user);
+                MessageBox.Show("Dodano użytkownika");
+                Close();
+            }
         }
         private void fillFields()
         {
-            textBoxName.Text = user.name;
-            textBoxSurname.Text = user.surname;
-            textBoxStreet.Text = user.street;
+            textBoxName.Text = userList[position].name;
+            textBoxSurname.Text = userList[position].surname;
+            textBoxStreet.Text = userList[position].street;
         }
     }
 }

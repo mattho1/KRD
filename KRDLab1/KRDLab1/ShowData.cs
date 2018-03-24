@@ -26,74 +26,58 @@ namespace KRDLab1
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            //windowAddOrModify = new AddModify(null);
-            // windowAddOrModify.ShowDialog();
-            addDataToXML();
+            windowAddOrModify = new AddModify(userList, null);
+            windowAddOrModify.ShowDialog();
+            refreshDataGridView();
+            //addDataToXML();
         }
-
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            //windowAddOrModify = new AddModify((User)dataGridViewData.SelectedRows);
-            //windowAddOrModify.ShowDialog();
+            if (dataGridViewData.SelectedRows.Count > 0)
+            {
+                windowAddOrModify = new AddModify(userList, findPosition(dataGridViewData.SelectedRows));
+                windowAddOrModify.ShowDialog();
+                refreshDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Najpierw musisz wybrać użytkownika którego chcesz modyfikować.");
+            }
         }
-        private User convert(DataGridViewRow row)
+
+        private int? findPosition(DataGridViewSelectedRowCollection selectedRows)
         {
-            User user = new User();
-            return user;
+            return userList.FindIndex(x => ((x.name == selectedRows[0].Cells[0].Value.ToString())
+                                            &&(x.surname == selectedRows[0].Cells[1].Value.ToString()) 
+                                            &&(x.street == selectedRows[0].Cells[2].Value.ToString())));
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            //createExampleData();
-            parseXML();
-            loadData();
-        }
-
-        private void parseXML()
-        {
-            var xml = XDocument.Load(nameFileWithData);
-            var query = (from c in xml.Root.Descendants("user")
-                        select new User(c.Element("Name").Value.ToString(),
-                        c.Element("Surname").Value.ToString(),
-                        c.Element("Street").Value.ToString())).ToList();
-            foreach (User user in query)
+            if (dataGridViewData.SelectedRows.Count > 0)
             {
-                userList.Add(user);
+                XMLFile.RemoveValueFromXMLFile(nameFileWithData, userList[(int)findPosition(dataGridViewData.SelectedRows)]);
+                userList.Remove(userList[(int)findPosition(dataGridViewData.SelectedRows)]);
+                refreshDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Najpierw musisz wybrać użytkownika którego chcesz usunąć.");
             }
         }
-        private void addDataToXML()
-        {
-            XDocument doc = XDocument.Load(nameFileWithData);
-            XElement root = new XElement("user");
-            root.Add(new XElement("Name", "Jan"));
-            root.Add(new XElement("Surname", "Nowak"));
-            root.Add(new XElement("Street", "Solna"));
-            doc.Element("user").Add(root);
-            doc.Save(nameFileWithData);
-        }
-        private void createExampleData()
-        {
-            XElement users =
-            new XElement("Users",
-                new XElement("user",
-                    new XElement("Name", "Mateusz"),
-                    new XElement("Surname", "Thomas"),
-                    new XElement("Street", "Reja")
-                ),
-                new XElement("user",
-                    new XElement("Name", "Maciej"),
-                    new XElement("Surname", "Kowalski"),
-                    new XElement("Street", "Długa")
-                )
-            );
-            users.Save(nameFileWithData);         
-        }
+
+
+
         private void loadData()
         {
-            parseXML();
+            userList = XMLFile.parseXML(nameFileWithData);
+            refreshDataGridView();
+        }
+        private void refreshDataGridView()
+        {
+            dataGridViewData.Rows.Clear();
             foreach (var user in userList)
             {
-                dataGridViewData.DataSource = null;
                 dataGridViewData.Rows.Add(user.name, user.surname, user.street);
             }
         }

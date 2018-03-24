@@ -16,12 +16,21 @@ namespace KRDLab1
         public Menu()
         {
             InitializeComponent();
+            login();
         }
 
         private void buttonManageUsers_Click(object sender, EventArgs e)
         {
             windowShowData = new ShowData();
+            this.Visible = false;
             windowShowData.ShowDialog();
+            this.Visible = true;
+        }
+        private void login()
+        {
+            this.Enabled = false;
+            LoginWindow window = new LoginWindow(this);
+            window.ShowDialog();
         }
     }
 }
