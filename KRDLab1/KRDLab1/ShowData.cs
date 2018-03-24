@@ -33,12 +33,12 @@ namespace KRDLab1
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            windowAddOrModify = new AddModify(dataGridViewData.SelectedRows);
-            windowAddOrModify.ShowDialog();
+            //windowAddOrModify = new AddModify((User)dataGridViewData.SelectedRows);
+            //windowAddOrModify.ShowDialog();
         }
         private User convert(DataGridViewRow row)
         {
-
+            User user = new User();
             return user;
         }
 
@@ -101,11 +101,23 @@ namespace KRDLab1
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             dataGridViewData.Rows.Clear();
+            String[] nameAndSurname = textBoxSearch.Text.ToLower().Split(' ');
             foreach (var user in userList)
             {
-                if (user.name.Contains(textBoxSearch.Text))
+                if (nameAndSurname.Count() == 1)
                 {
-                    dataGridViewData.Rows.Add(user.name, user.surname, user.street);
+                    if (user.name.ToLower().Contains(nameAndSurname[0]) || user.surname.ToLower().Contains(nameAndSurname[0]))
+                    {
+                        dataGridViewData.Rows.Add(user.name, user.surname, user.street);
+                    }
+                }
+                else
+                {
+                    if (user.name.ToLower().Contains(nameAndSurname[0]) && user.surname.ToLower().Contains(nameAndSurname[1])||
+                    (user.name.ToLower().Contains(nameAndSurname[1]) && user.surname.ToLower().Contains(nameAndSurname[0])))
+                    {
+                        dataGridViewData.Rows.Add(user.name, user.surname, user.street);
+                    }
                 }
             }
         }
