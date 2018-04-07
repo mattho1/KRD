@@ -42,7 +42,7 @@ namespace KRDLab1
             if (isModifyWindow)
             {
                 User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text);
-                XMLFile.UpdateUserInXMLFile(nameFileWithData, userList[position], user);
+                ManageUsers.ModifyUser(userList[position], user, nameFileWithData);
                 userList[position] = user;
                 MessageBox.Show("Zmieniono dane użytkownika");
                 Close();
@@ -50,7 +50,7 @@ namespace KRDLab1
             else
             {
                 User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text);
-                XMLFile.AddUserToXMLFile(nameFileWithData, user);
+                ManageUsers.AddUser(user, nameFileWithData);
                 userList.Add(user);
                 MessageBox.Show("Dodano użytkownika");
                 Close();

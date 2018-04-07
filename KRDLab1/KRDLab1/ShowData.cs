@@ -56,7 +56,7 @@ namespace KRDLab1
         {
             if (dataGridViewData.SelectedRows.Count > 0)
             {
-                XMLFile.RemoveValueFromXMLFile(nameFileWithData, userList[(int)findPosition(dataGridViewData.SelectedRows)]);
+                ManageUsers.RemoveUser(userList[(int)findPosition(dataGridViewData.SelectedRows)], nameFileWithData);
                 userList.Remove(userList[(int)findPosition(dataGridViewData.SelectedRows)]);
                 refreshDataGridView();
             }
@@ -70,7 +70,11 @@ namespace KRDLab1
 
         private void loadData()
         {
-            userList = XMLFile.parseXML(nameFileWithData);
+            Users uss = ManageUsers.ReadListUsers(nameFileWithData);
+            if(uss != null)
+            {
+                userList = uss.users;
+            }
             refreshDataGridView();
         }
         private void refreshDataGridView()

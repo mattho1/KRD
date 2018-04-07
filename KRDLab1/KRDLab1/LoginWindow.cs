@@ -18,18 +18,6 @@ namespace KRDLab1
         {
             callingWindow = _callingWindow;
             InitializeComponent();
-            setHints();
-        }
-        private void setHints()
-        {
-            System.Windows.Forms.ToolTip yourToolTip = new ToolTip();
-            //The below are optional, of course,
-
-            yourToolTip.ToolTipIcon = ToolTipIcon.Info;
-            yourToolTip.IsBalloon = true;
-            yourToolTip.ShowAlways = true;
-
-            yourToolTip.SetToolTip(textBoxLogin, "Oooh, you put your mouse over me.");
         }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -50,11 +38,24 @@ namespace KRDLab1
         }
         private bool validation()
         {
-            if (textBoxLogin.Text.Equals("")&&textBoxPassword.Text.Equals(""))
+            if (textBoxLogin.Text.Equals("")&&textBoxPassword.Text.Equals(""))  // zmienic na czytanie z pliku a nie hardcode 
             {
                 return true;
             }
             return false;
+        }
+
+        private void buttonSearchStatusPackage_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Do zaimplementowania.");
+        }
+
+        private void LoginWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!validation())
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

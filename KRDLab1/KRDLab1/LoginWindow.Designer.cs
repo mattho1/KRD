@@ -35,6 +35,7 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.labelLogin = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
+            this.buttonSearchStatusPackage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // buttonLogin
             // 
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonLogin.Location = new System.Drawing.Point(180, 518);
+            this.buttonLogin.Location = new System.Drawing.Point(180, 517);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(243, 42);
             this.buttonLogin.TabIndex = 3;
@@ -98,11 +99,23 @@
             this.labelPassword.TabIndex = 5;
             this.labelPassword.Text = "Hasło:";
             // 
+            // buttonSearchStatusPackage
+            // 
+            this.buttonSearchStatusPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonSearchStatusPackage.Location = new System.Drawing.Point(135, 621);
+            this.buttonSearchStatusPackage.Name = "buttonSearchStatusPackage";
+            this.buttonSearchStatusPackage.Size = new System.Drawing.Size(332, 42);
+            this.buttonSearchStatusPackage.TabIndex = 6;
+            this.buttonSearchStatusPackage.Text = "Sprawdź status mojej paczki";
+            this.buttonSearchStatusPackage.UseVisualStyleBackColor = true;
+            this.buttonSearchStatusPackage.Click += new System.EventHandler(this.buttonSearchStatusPackage_Click);
+            // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 643);
+            this.ClientSize = new System.Drawing.Size(603, 715);
+            this.Controls.Add(this.buttonSearchStatusPackage);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);
             this.Controls.Add(this.buttonLogin);
@@ -111,6 +124,7 @@
             this.Controls.Add(this.pictureBoxImage);
             this.Name = "LoginWindow";
             this.Text = "LoginWindow";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginWindow_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -125,5 +139,6 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Button buttonSearchStatusPackage;
     }
 }

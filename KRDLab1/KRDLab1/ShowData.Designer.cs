@@ -44,7 +44,7 @@
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonAdd.Location = new System.Drawing.Point(56, 37);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(100, 45);
+            this.buttonAdd.Size = new System.Drawing.Size(104, 45);
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Dodaj";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -53,9 +53,9 @@
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonEdit.Location = new System.Drawing.Point(295, 37);
+            this.buttonEdit.Location = new System.Drawing.Point(292, 37);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(100, 45);
+            this.buttonEdit.Size = new System.Drawing.Size(104, 45);
             this.buttonEdit.TabIndex = 1;
             this.buttonEdit.Text = "Edytuj";
             this.buttonEdit.UseVisualStyleBackColor = true;
@@ -66,7 +66,7 @@
             this.buttonRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonRemove.Location = new System.Drawing.Point(539, 37);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(100, 45);
+            this.buttonRemove.Size = new System.Drawing.Size(104, 45);
             this.buttonRemove.TabIndex = 2;
             this.buttonRemove.Text = "Usuń";
             this.buttonRemove.UseVisualStyleBackColor = true;
