@@ -14,15 +14,21 @@ namespace KRDLab1
     {
         Menu callingWindow;
         int counterLoginAttempts = 0;
+        List<User> userList;
+        User user;
+        string path = "users.xml";
         public LoginWindow(Menu _callingWindow)
         {
             callingWindow = _callingWindow;
             InitializeComponent();
+            userList = new List<User>();
+            loadUsers();
         }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             if (validation()){
                 callingWindow.Enabled = true;
+                callingWindow.setUserRole(user.role);
                 this.Close();
             }
             else
@@ -38,19 +44,32 @@ namespace KRDLab1
         }
         private bool validation()
         {
-            if (textBoxLogin.Text.Equals("")&&textBoxPassword.Text.Equals(""))  // zmienic na czytanie z pliku a nie hardcode 
+            foreach (var user in userList)
             {
-                return true;
+                if (textBoxLogin.Text.Equals(user.login) && textBoxPassword.Text.Equals(user.password))
+                {
+                    this.user = user;
+                    return true;
+                }
             }
             return false;
         }
-
+        private bool validationClient()
+        {
+            foreach (var client in userList)
+            {
+                if (textBoxLogin.Text.Equals(client.surname) && textBoxPassword.Text.Equals(client.password))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void buttonSearchStatusPackage_Click(object sender, EventArgs e)
         {
-            //if(!textBoxLogin.Text.Equals("") && !textBoxPassword.Text.Equals(""))
-            if (textBoxLogin.Text.Equals("") && textBoxPassword.Text.Equals(""))
+            if(!textBoxLogin.Text.Equals("") && !textBoxPassword.Text.Equals(""))
             {
-                if (validation())
+                if (validationClient())
                 {
                     ShowPackages windowShowPackages = new ShowPackages(getCustomerId());
                     this.Visible = false;                    
@@ -69,7 +88,7 @@ namespace KRDLab1
 
         private int getCustomerId()
         {
-            return 1;
+            return userList.Where(u => u.password == textBoxPassword.Text && u.surname == textBoxLogin.Text).First().id;
         }
 
         private void LoginWindow_FormClosed(object sender, FormClosedEventArgs e)
@@ -77,6 +96,15 @@ namespace KRDLab1
             if (!validation())
             {
                 Environment.Exit(0);
+            }
+        }
+
+        private void loadUsers()
+        {
+            Users uss = ManageUsers.ReadListUsers(path);
+            if (uss != null)
+            {
+                userList = uss.users;
             }
         }
     }

@@ -29,7 +29,6 @@ namespace KRDLab1
             windowAddOrModify = new AddModify(userList, null);
             windowAddOrModify.ShowDialog();
             refreshDataGridView();
-            //addDataToXML();
         }
         private void buttonEdit_Click(object sender, EventArgs e)
         {
@@ -56,8 +55,8 @@ namespace KRDLab1
         {
             if (dataGridViewData.SelectedRows.Count > 0)
             {
-                ManageUsers.RemoveUser(userList[(int)findPosition(dataGridViewData.SelectedRows)], nameFileWithData);
-                userList.Remove(userList[(int)findPosition(dataGridViewData.SelectedRows)]);
+                ManageUsers.RemoveUser(getSelectedUser(), nameFileWithData);
+                userList.Remove(getSelectedUser());
                 refreshDataGridView();
             }
             else
@@ -65,9 +64,10 @@ namespace KRDLab1
                 MessageBox.Show("Najpierw musisz wybrać użytkownika którego chcesz usunąć.");
             }
         }
-
-
-
+        private User getSelectedUser()
+        {
+            return userList[(int)findPosition(dataGridViewData.SelectedRows)];
+        }
         private void loadData()
         {
             Users uss = ManageUsers.ReadListUsers(nameFileWithData);
@@ -82,7 +82,7 @@ namespace KRDLab1
             dataGridViewData.Rows.Clear();
             foreach (var user in userList)
             {
-                dataGridViewData.Rows.Add(user.name, user.surname, user.role, user.login, user.street);
+                addRowTodataGridView(user);
             }
         }
 
@@ -96,7 +96,7 @@ namespace KRDLab1
                 {
                     if (user.name.ToLower().Contains(nameAndSurname[0]) || user.surname.ToLower().Contains(nameAndSurname[0]))
                     {
-                        dataGridViewData.Rows.Add(user.name, user.surname, user.role, user.login, user.street);
+                        addRowTodataGridView(user);
                     }
                 }
                 else
@@ -104,10 +104,14 @@ namespace KRDLab1
                     if (user.name.ToLower().Contains(nameAndSurname[0]) && user.surname.ToLower().Contains(nameAndSurname[1])||
                     (user.name.ToLower().Contains(nameAndSurname[1]) && user.surname.ToLower().Contains(nameAndSurname[0])))
                     {
-                        dataGridViewData.Rows.Add(user.name, user.surname, user.role, user.login, user.street);
+                        addRowTodataGridView(user);
                     }
                 }
             }
+        }
+        private void addRowTodataGridView(User user)
+        {
+            dataGridViewData.Rows.Add(user.name, user.surname, user.role, user.login, user.street);
         }
     }
 }

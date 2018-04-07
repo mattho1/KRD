@@ -11,7 +11,53 @@ namespace KRDLab1
 {
     public class ManagePackage
     {
-        public static bool Write(Package package, string path)
+        public static bool AddPackage(Package package, string path)
+        {
+            return Write(package, path);
+        }
+        public static bool AddPackages(List<Package> packages, string path)
+        {
+            return WriteListPackages(packages, path);
+        }
+        public static bool RemovePackage(Package package, string path)
+        {
+            return AddOrRemovePackage(package, null, path);
+        }
+        public static bool ModifyPackage(Package oldPackage, Package newPackage, string path)
+        {
+            return AddOrRemovePackage(oldPackage, newPackage, path);
+        }
+        private static bool AddOrRemovePackage(Package packageToRemove, Package packageToAdd, string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                {
+                    Packages packages;
+                    packages = ReadListPackages(path);
+                    packages.Remove(packageToRemove);
+                    if (packageToAdd != null)
+                    {
+                        packages.Add(packageToAdd);
+                    }
+                    XmlSerializer x = new XmlSerializer(typeof(Packages));
+                    StreamWriter writer = new StreamWriter(path);
+                    x.Serialize(writer, packages);
+                    writer.Close();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return false;
+            }
+        }
+        private static bool Write(Package package, string path)
         {
             try
             {
@@ -38,7 +84,7 @@ namespace KRDLab1
             }
         }
 
-        public static bool WriteListPackages(List<Package> packages, string path)
+        private static bool WriteListPackages(List<Package> packages, string path)
         {
             try
             {

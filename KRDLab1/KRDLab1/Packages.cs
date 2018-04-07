@@ -29,5 +29,11 @@ namespace KRDLab1
                 packages.Add(pack);
             }
         }
+
+        internal void Remove(Package packageToRemove)
+        {
+            var item = packages.SingleOrDefault(r => r.number == packageToRemove.number);
+            packages.Remove(item);
+        }
     }
 }
