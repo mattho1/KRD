@@ -35,6 +35,8 @@
             this.dataGridViewData = new System.Windows.Forms.DataGridView();
             this.columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnStreet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             // buttonEdit
             // 
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonEdit.Location = new System.Drawing.Point(292, 37);
+            this.buttonEdit.Location = new System.Drawing.Point(424, 37);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(104, 45);
             this.buttonEdit.TabIndex = 1;
@@ -64,7 +66,7 @@
             // buttonRemove
             // 
             this.buttonRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonRemove.Location = new System.Drawing.Point(539, 37);
+            this.buttonRemove.Location = new System.Drawing.Point(795, 37);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(104, 45);
             this.buttonRemove.TabIndex = 2;
@@ -76,7 +78,7 @@
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(55, 118);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(584, 22);
+            this.textBoxSearch.Size = new System.Drawing.Size(844, 22);
             this.textBoxSearch.TabIndex = 3;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
@@ -86,36 +88,50 @@
             this.dataGridViewData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnName,
             this.columnSurname,
+            this.ColumnRole,
+            this.ColumnLogin,
             this.columnStreet});
             this.dataGridViewData.Location = new System.Drawing.Point(56, 146);
             this.dataGridViewData.Name = "dataGridViewData";
             this.dataGridViewData.RowTemplate.Height = 24;
-            this.dataGridViewData.Size = new System.Drawing.Size(583, 330);
+            this.dataGridViewData.Size = new System.Drawing.Size(843, 330);
             this.dataGridViewData.TabIndex = 4;
             // 
             // columnName
             // 
             this.columnName.HeaderText = "Imie";
             this.columnName.Name = "columnName";
-            this.columnName.Width = 180;
+            this.columnName.Width = 170;
             // 
             // columnSurname
             // 
             this.columnSurname.HeaderText = "Nazwisko";
             this.columnSurname.Name = "columnSurname";
-            this.columnSurname.Width = 180;
+            this.columnSurname.Width = 170;
+            // 
+            // ColumnRole
+            // 
+            this.ColumnRole.HeaderText = "Rola";
+            this.ColumnRole.Name = "ColumnRole";
+            this.ColumnRole.Width = 120;
+            // 
+            // ColumnLogin
+            // 
+            this.ColumnLogin.HeaderText = "Login";
+            this.ColumnLogin.Name = "ColumnLogin";
+            this.ColumnLogin.Width = 170;
             // 
             // columnStreet
             // 
             this.columnStreet.HeaderText = "Ulica";
             this.columnStreet.Name = "columnStreet";
-            this.columnStreet.Width = 180;
+            this.columnStreet.Width = 170;
             // 
             // ShowData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 530);
+            this.ClientSize = new System.Drawing.Size(971, 530);
             this.Controls.Add(this.dataGridViewData);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonRemove);
@@ -138,6 +154,8 @@
         private System.Windows.Forms.DataGridView dataGridViewData;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLogin;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnStreet;
     }
 }

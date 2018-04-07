@@ -42,20 +42,20 @@ namespace KRDLab1
             windowManagePackages.ShowDialog();
             this.Visible = true;
         }
-        private void testAddPackage()
-        {
-            List<Package> listPackages = new List<Package>();
-            listPackages.Add(new Package(1, "dostarczona", new DateTime(2018, 10, 10, 10, 0, 0), new KRDLab1.User("Mateusz", "Kowalski", "Długa")));
-            listPackages.Add(new Package(2, "oczekujaca", new DateTime(2018, 10, 20, 10, 0, 0), new KRDLab1.User("Mateusz1", "Kowalski1", "Długa1")));
-            listPackages.Add(new Package(3, "spakowana", new DateTime(2018, 10, 30, 10, 0, 0), new KRDLab1.User("Mateusz2", "Kowalski2", "Długa2")));
-            //Package pac = new Package(1, "dostarczona", "test", 1);
-            ManagePackage.WriteListPackages(listPackages, "Packages.xml");
-            ManagePackage.Write(listPackages[0],"Packages.xml");
-            Packages listPackages2 = ManagePackage.ReadListPackages("Packages.xml");
-            Console.WriteLine(listPackages2.packages[0].number.ToString());
-            //ManagePackage.Write(pac, "Packages.xml");
-            //List<Package> pacs = ManagePackage.Read("Packages.xml");
+        //private void testAddPackage()
+        ////{
+        ////    List<Package> listPackages = new List<Package>();
+        ////    listPackages.Add(new Package(1, "dostarczona", new DateTime(2018, 10, 10, 10, 0, 0), new KRDLab1.User("Mateusz", "Kowalski", "Długa")));
+        ////    listPackages.Add(new Package(2, "oczekujaca", new DateTime(2018, 10, 20, 10, 0, 0), new KRDLab1.User("Mateusz1", "Kowalski1", "Długa1")));
+        ////    listPackages.Add(new Package(3, "spakowana", new DateTime(2018, 10, 30, 10, 0, 0), new KRDLab1.User("Mateusz2", "Kowalski2", "Długa2")));
+        ////    //Package pac = new Package(1, "dostarczona", "test", 1);
+        ////    ManagePackage.WriteListPackages(listPackages, "Packages.xml");
+        ////    ManagePackage.Write(listPackages[0],"Packages.xml");
+        ////    Packages listPackages2 = ManagePackage.ReadListPackages("Packages.xml");
+        ////    Console.WriteLine(listPackages2.packages[0].number.ToString());
+        ////    //ManagePackage.Write(pac, "Packages.xml");
+        ////    //List<Package> pacs = ManagePackage.Read("Packages.xml");
 
-        }
+        //}
     }
 }

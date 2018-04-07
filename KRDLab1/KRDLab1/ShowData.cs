@@ -49,7 +49,7 @@ namespace KRDLab1
         {
             return userList.FindIndex(x => ((x.name == selectedRows[0].Cells[0].Value.ToString())
                                             &&(x.surname == selectedRows[0].Cells[1].Value.ToString()) 
-                                            &&(x.street == selectedRows[0].Cells[2].Value.ToString())));
+                                            &&(x.street == selectedRows[0].Cells[4].Value.ToString())));
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace KRDLab1
             dataGridViewData.Rows.Clear();
             foreach (var user in userList)
             {
-                dataGridViewData.Rows.Add(user.name, user.surname, user.street);
+                dataGridViewData.Rows.Add(user.name, user.surname, user.role, user.login, user.street);
             }
         }
 
@@ -96,7 +96,7 @@ namespace KRDLab1
                 {
                     if (user.name.ToLower().Contains(nameAndSurname[0]) || user.surname.ToLower().Contains(nameAndSurname[0]))
                     {
-                        dataGridViewData.Rows.Add(user.name, user.surname, user.street);
+                        dataGridViewData.Rows.Add(user.name, user.surname, user.role, user.login, user.street);
                     }
                 }
                 else
@@ -104,7 +104,7 @@ namespace KRDLab1
                     if (user.name.ToLower().Contains(nameAndSurname[0]) && user.surname.ToLower().Contains(nameAndSurname[1])||
                     (user.name.ToLower().Contains(nameAndSurname[1]) && user.surname.ToLower().Contains(nameAndSurname[0])))
                     {
-                        dataGridViewData.Rows.Add(user.name, user.surname, user.street);
+                        dataGridViewData.Rows.Add(user.name, user.surname, user.role, user.login, user.street);
                     }
                 }
             }

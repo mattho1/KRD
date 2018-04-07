@@ -47,7 +47,29 @@ namespace KRDLab1
 
         private void buttonSearchStatusPackage_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Do zaimplementowania.");
+            //if(!textBoxLogin.Text.Equals("") && !textBoxPassword.Text.Equals(""))
+            if (textBoxLogin.Text.Equals("") && textBoxPassword.Text.Equals(""))
+            {
+                if (validation())
+                {
+                    ShowPackages windowShowPackages = new ShowPackages(getCustomerId());
+                    this.Visible = false;                    
+                    windowShowPackages.ShowDialog();
+                    this.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Niepoprawne dane logowania.");
+                }
+            }else
+            {
+                MessageBox.Show("Podaj Login (swoje nazwisko) i Hasło.");
+            }
+        }
+
+        private int getCustomerId()
+        {
+            return 1;
         }
 
         private void LoginWindow_FormClosed(object sender, FormClosedEventArgs e)

@@ -70,10 +70,10 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonLogin.Location = new System.Drawing.Point(180, 517);
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonLogin.Location = new System.Drawing.Point(140, 517);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(243, 42);
+            this.buttonLogin.Size = new System.Drawing.Size(331, 42);
             this.buttonLogin.TabIndex = 3;
             this.buttonLogin.Text = "Zaloguj";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -101,10 +101,10 @@
             // 
             // buttonSearchStatusPackage
             // 
-            this.buttonSearchStatusPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonSearchStatusPackage.Location = new System.Drawing.Point(135, 621);
+            this.buttonSearchStatusPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonSearchStatusPackage.Location = new System.Drawing.Point(140, 578);
             this.buttonSearchStatusPackage.Name = "buttonSearchStatusPackage";
-            this.buttonSearchStatusPackage.Size = new System.Drawing.Size(332, 42);
+            this.buttonSearchStatusPackage.Size = new System.Drawing.Size(331, 42);
             this.buttonSearchStatusPackage.TabIndex = 6;
             this.buttonSearchStatusPackage.Text = "Sprawdź status mojej paczki";
             this.buttonSearchStatusPackage.UseVisualStyleBackColor = true;

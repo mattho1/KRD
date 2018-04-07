@@ -80,5 +80,21 @@ namespace KRDLab1
                 return null;
             }
         }
+        public static Packages ReadListPackages(int customerId, string path)
+        {
+            try
+            {
+                XmlSerializer x = new XmlSerializer(typeof(Packages));
+                StreamReader reader = new StreamReader(path);
+                Packages packages = ((Packages)x.Deserialize(reader));
+                packages.packages = packages.packages.Where(p => p.owner.id == customerId).ToList();
+                reader.Close();
+                return packages;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

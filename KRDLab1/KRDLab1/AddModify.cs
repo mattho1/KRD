@@ -21,6 +21,7 @@ namespace KRDLab1
             InitializeComponent();
             userList = _userList;
             decideWhetherToAddOrModify(_number);
+            loadRoles();
         }
         private void decideWhetherToAddOrModify(int? _number)
         {
@@ -39,28 +40,64 @@ namespace KRDLab1
         }
         private void buttonAddOrModify_Click(object sender, EventArgs e)
         {
-            if (isModifyWindow)
+            if (validation())
             {
-                User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text);
-                ManageUsers.ModifyUser(userList[position], user, nameFileWithData);
-                userList[position] = user;
-                MessageBox.Show("Zmieniono dane użytkownika");
-                Close();
-            }
-            else
+                if (isModifyWindow)
+                {
+                    User user = new User(userList[position].id, textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, comboBoxRole.Text);
+                    ManageUsers.ModifyUser(userList[position], user, nameFileWithData);
+                    userList[position] = user;
+                    MessageBox.Show("Zmieniono dane użytkownika");
+                    Close();
+                }
+                else
+                {
+                    User user = new User(generateIdNumber(), textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, comboBoxRole.Text);
+                    ManageUsers.AddUser(user, nameFileWithData);
+                    userList.Add(user);
+                    MessageBox.Show("Dodano użytkownika");
+                    Close();
+                }
+            }else
             {
-                User user = new User(textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text);
-                ManageUsers.AddUser(user, nameFileWithData);
-                userList.Add(user);
-                MessageBox.Show("Dodano użytkownika");
-                Close();
+                MessageBox.Show("Wprowadź wszystkie dane");
             }
+        }
+        private bool validation()
+        {
+            if (textBoxName.Text.Equals("") || textBoxName.Text.Equals("") || textBoxSurname.Text.Equals("") || textBoxStreet.Text.Equals("") || textBoxLogin.Text.Equals("") || textBoxPassword.Text.Equals("") || comboBoxRole.Text.Equals(""))
+            {
+                return false;
+            }
+            return true;
         }
         private void fillFields()
         {
             textBoxName.Text = userList[position].name;
             textBoxSurname.Text = userList[position].surname;
             textBoxStreet.Text = userList[position].street;
+            textBoxLogin.Text = userList[position].login;
+            textBoxPassword.Text = userList[position].password;
+            comboBoxRole.Text = userList[position].role;
+        }
+        private void loadRoles()
+        {
+            comboBoxRole.Items.Add("Administrator");
+            comboBoxRole.Items.Add("Kurier");
+            comboBoxRole.Items.Add("Klient");
+            comboBoxRole.Text = "Klient";
+        }
+        private int generateIdNumber()
+        {
+            int idNumber = 0;
+            foreach(User us in userList)
+            {
+                if(us.id > idNumber)
+                {
+                    idNumber = us.id;
+                }
+            }
+            return ++idNumber;
         }
     }
 }
