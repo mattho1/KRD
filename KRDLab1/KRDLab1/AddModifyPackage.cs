@@ -23,7 +23,18 @@ namespace KRDLab1
             package = pack;
             decideWhetherToAddOrModify();
             loadClients();
+            loadStatus();
         }
+
+        private void loadStatus()
+        {
+            List<String> statusList = new List<string>{ "dostarczono", "w drodze", "w magazynie", "w systemie"};
+            foreach (var status in statusList)
+            {
+                comboBoxStatus.Items.Add(status);
+            }
+        }
+
         private void decideWhetherToAddOrModify()
         {
             if (package != null)

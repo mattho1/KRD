@@ -73,6 +73,12 @@
     <Compile Include="AddModifyPackage.Designer.cs">
       <DependentUpon>AddModifyPackage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeStatus.Designer.cs">
+      <DependentUpon>ChangeStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalVar.cs" />
     <Compile Include="LoginWindow.cs">
       <SubType>Form</SubType>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddModifyPackage.resx">
       <DependentUpon>AddModifyPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeStatus.resx">
+      <DependentUpon>ChangeStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>

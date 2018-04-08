@@ -22,7 +22,18 @@ namespace KRDLab1
 
         private void buttonChangeStatus_Click(object sender, EventArgs e)
         {
-
+            if (dataGridViewPackages.SelectedRows.Count > 0)
+            {
+                ChangeStatus windowChangeStatus = new ChangeStatus(listPackages, listPackages[(int)findPosition(dataGridViewPackages.SelectedRows)]);
+                this.Enabled = false;
+                windowChangeStatus.ShowDialog();
+                refreshDataGridView();
+                this.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Najpierw musisz wybrać paczkę której chcesz zmienić status.");
+            }
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
