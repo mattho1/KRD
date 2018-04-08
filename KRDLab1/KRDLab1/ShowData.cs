@@ -25,7 +25,7 @@ namespace KRDLab1
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            windowAddOrModify = new AddModify(userList, null);
+            windowAddOrModify = new AddModify(userList, null, false);
             windowAddOrModify.ShowDialog();
             refreshDataGridView();
         }
@@ -33,7 +33,7 @@ namespace KRDLab1
         {
             if (dataGridViewData.SelectedRows.Count > 0)
             {
-                windowAddOrModify = new AddModify(userList, findPosition(dataGridViewData.SelectedRows));
+                windowAddOrModify = new AddModify(userList, findPosition(dataGridViewData.SelectedRows), false);
                 windowAddOrModify.ShowDialog();
                 refreshDataGridView();
             }

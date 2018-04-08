@@ -62,7 +62,7 @@ namespace KRDLab1
         {
             foreach (var client in userList)
             {
-                if (textBoxLogin.Text.Equals(client.surname) && textBoxPassword.Text.Equals(client.password))
+                if ((textBoxLogin.Text.Equals(client.surname) || textBoxLogin.Text.Equals(client.login)) && textBoxPassword.Text.Equals(client.password))
                 {
                     return true;
                 }
@@ -92,7 +92,7 @@ namespace KRDLab1
 
         private int getCustomerId()
         {
-            return userList.Where(u => u.password == textBoxPassword.Text && u.surname == textBoxLogin.Text).First().id;
+            return userList.Where(u => u.password == textBoxPassword.Text && (u.surname == textBoxLogin.Text || u.login == textBoxLogin.Text)).First().id;
         }
 
         private void LoginWindow_FormClosed(object sender, FormClosedEventArgs e)

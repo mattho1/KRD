@@ -45,21 +45,21 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(109, 74);
+            this.textBoxName.Location = new System.Drawing.Point(150, 74);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(201, 22);
             this.textBoxName.TabIndex = 0;
             // 
             // textBoxSurname
             // 
-            this.textBoxSurname.Location = new System.Drawing.Point(109, 130);
+            this.textBoxSurname.Location = new System.Drawing.Point(150, 130);
             this.textBoxSurname.Name = "textBoxSurname";
             this.textBoxSurname.Size = new System.Drawing.Size(201, 22);
             this.textBoxSurname.TabIndex = 1;
             // 
             // textBoxStreet
             // 
-            this.textBoxStreet.Location = new System.Drawing.Point(109, 186);
+            this.textBoxStreet.Location = new System.Drawing.Point(150, 186);
             this.textBoxStreet.Name = "textBoxStreet";
             this.textBoxStreet.Size = new System.Drawing.Size(201, 22);
             this.textBoxStreet.TabIndex = 2;
@@ -67,7 +67,7 @@
             // comboBoxRole
             // 
             this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Location = new System.Drawing.Point(109, 356);
+            this.comboBoxRole.Location = new System.Drawing.Point(150, 356);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(201, 24);
             this.comboBoxRole.TabIndex = 4;
@@ -145,14 +145,14 @@
             // 
             // textBoxLogin
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(109, 257);
+            this.textBoxLogin.Location = new System.Drawing.Point(150, 257);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(201, 22);
             this.textBoxLogin.TabIndex = 12;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(109, 297);
+            this.textBoxPassword.Location = new System.Drawing.Point(150, 297);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(201, 22);
             this.textBoxPassword.TabIndex = 13;

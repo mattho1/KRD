@@ -15,10 +15,12 @@ namespace KRDLab1
         List<User> userList;
         int position;
         bool isModifyWindow;
-        public AddModify(List<User> _userList, int? _number)
+        bool isClient;
+        public AddModify(List<User> _userList, int? _number, bool _isClient)
         {
             InitializeComponent();
             userList = _userList;
+            isClient = _isClient;
             decideWhetherToAddOrModify(_number);
             loadRoles();
         }
@@ -54,7 +56,14 @@ namespace KRDLab1
                     User user = new User(generateIdNumber(), textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, comboBoxRole.Text);
                     ManageUsers.AddUser(user, GlobalVar.pathUsersFile);
                     userList.Add(user);
-                    MessageBox.Show("Dodano użytkownika");
+                    if (isClient)
+                    {
+                        MessageBox.Show("Dodano klienta");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dodano użytkownika");
+                    }
                     Close();
                 }
             }else
@@ -81,9 +90,15 @@ namespace KRDLab1
         }
         private void loadRoles()
         {
-            comboBoxRole.Items.Add("Administrator");
-            comboBoxRole.Items.Add("Kurier");
-            comboBoxRole.Items.Add("Klient");
+            if (!isClient)
+            {
+                comboBoxRole.Items.Add("Administrator");
+                comboBoxRole.Items.Add("Kurier");
+                comboBoxRole.Items.Add("Klient");
+            }else
+            {
+                comboBoxRole.Enabled = false;
+            }
             comboBoxRole.Text = "Klient";
         }
         private int generateIdNumber()

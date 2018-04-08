@@ -26,12 +26,23 @@ namespace KRDLab1
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
+            AddModifyPackage windowAdd = new AddModifyPackage(listPackages, null);
+            windowAdd.ShowDialog();
+            refreshDataGridView();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-
+            if (dataGridViewPackages.SelectedRows.Count > 0)
+            {
+                AddModifyPackage windowModify = new AddModifyPackage(listPackages, listPackages[(int)findPosition(dataGridViewPackages.SelectedRows)]);
+                windowModify.ShowDialog();
+                refreshDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Najpierw musisz wybrać paczkę którą chcesz modyfikować.");
+            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)

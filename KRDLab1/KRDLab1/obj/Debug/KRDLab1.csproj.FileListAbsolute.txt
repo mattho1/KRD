@@ -13,3 +13,4 @@ C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.pdb
 C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.LoginWindow.resources
 C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.ManagePackagesWindow.resources
 C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.ShowPackages.resources
+C:\Users\lenovo\Documents\KRDKurs\KRDLab1\KRDLab1\obj\Debug\KRDLab1.AddModifyPackage.resources
