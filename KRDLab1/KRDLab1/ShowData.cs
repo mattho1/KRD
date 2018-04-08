@@ -16,7 +16,6 @@ namespace KRDLab1
     {
         AddModify windowAddOrModify;
         List<User> userList;
-        String nameFileWithData = "users.xml";
         public ShowData()
         {
             InitializeComponent();
@@ -55,7 +54,7 @@ namespace KRDLab1
         {
             if (dataGridViewData.SelectedRows.Count > 0)
             {
-                ManageUsers.RemoveUser(getSelectedUser(), nameFileWithData);
+                ManageUsers.RemoveUser(getSelectedUser(), GlobalVar.pathUsersFile);
                 userList.Remove(getSelectedUser());
                 refreshDataGridView();
             }
@@ -70,7 +69,7 @@ namespace KRDLab1
         }
         private void loadData()
         {
-            Users uss = ManageUsers.ReadListUsers(nameFileWithData);
+            Users uss = ManageUsers.ReadListUsers(GlobalVar.pathUsersFile);
             if(uss != null)
             {
                 userList = uss.users;

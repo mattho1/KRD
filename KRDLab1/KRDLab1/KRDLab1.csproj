@@ -67,6 +67,7 @@
     <Compile Include="AddModify.Designer.cs">
       <DependentUpon>AddModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalVar.cs" />
     <Compile Include="LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>

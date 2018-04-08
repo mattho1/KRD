@@ -15,7 +15,6 @@ namespace KRDLab1
         List<User> userList;
         int position;
         bool isModifyWindow;
-        String nameFileWithData = "users.xml";
         public AddModify(List<User> _userList, int? _number)
         {
             InitializeComponent();
@@ -45,7 +44,7 @@ namespace KRDLab1
                 if (isModifyWindow)
                 {
                     User user = new User(userList[position].id, textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, comboBoxRole.Text);
-                    ManageUsers.ModifyUser(userList[position], user, nameFileWithData);
+                    ManageUsers.ModifyUser(userList[position], user, GlobalVar.pathUsersFile);
                     userList[position] = user;
                     MessageBox.Show("Zmieniono dane użytkownika");
                     Close();
@@ -53,7 +52,7 @@ namespace KRDLab1
                 else
                 {
                     User user = new User(generateIdNumber(), textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, comboBoxRole.Text);
-                    ManageUsers.AddUser(user, nameFileWithData);
+                    ManageUsers.AddUser(user, GlobalVar.pathUsersFile);
                     userList.Add(user);
                     MessageBox.Show("Dodano użytkownika");
                     Close();

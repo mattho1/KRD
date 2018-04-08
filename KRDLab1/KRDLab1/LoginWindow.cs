@@ -16,7 +16,6 @@ namespace KRDLab1
         int counterLoginAttempts = 0;
         List<User> userList;
         User user;
-        string path = "users.xml";
         public LoginWindow(Menu _callingWindow)
         {
             callingWindow = _callingWindow;
@@ -26,7 +25,12 @@ namespace KRDLab1
         }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (validation()){
+            login();
+        }
+        private void login()
+        {
+            if (validation())
+            {
                 callingWindow.Enabled = true;
                 callingWindow.setUserRole(user.role);
                 this.Close();
@@ -36,7 +40,7 @@ namespace KRDLab1
                 counterLoginAttempts++;
                 string text = "Niepoprawne dane logowania. Pozostało " + (3 - counterLoginAttempts) + " prób logowania.";
                 MessageBox.Show(text);
-                if (counterLoginAttempts==3)
+                if (counterLoginAttempts == 3)
                 {
                     Environment.Exit(0);
                 }
@@ -93,7 +97,7 @@ namespace KRDLab1
 
         private void LoginWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!validation())
+            if (user == null)
             {
                 Environment.Exit(0);
             }
@@ -101,10 +105,26 @@ namespace KRDLab1
 
         private void loadUsers()
         {
-            Users uss = ManageUsers.ReadListUsers(path);
+            Users uss = ManageUsers.ReadListUsers(GlobalVar.pathUsersFile);
             if (uss != null)
             {
                 userList = uss.users;
+            }
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login();
+            }
+        }
+
+        private void textBoxLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login();
             }
         }
     }

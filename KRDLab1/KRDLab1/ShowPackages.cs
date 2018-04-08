@@ -13,7 +13,6 @@ namespace KRDLab1
     public partial class ShowPackages : Form
     {
         private int customerId;
-        private string path = "Packages.xml";
         List<Package> packages = new List<Package>();
 
         public ShowPackages(int idNumber)
@@ -25,7 +24,7 @@ namespace KRDLab1
 
         private void LoadDataAboutPackages()
         {
-            Packages packs = ManagePackage.ReadListPackages(customerId, path);
+            Packages packs = ManagePackage.ReadListPackages(customerId, GlobalVar.pathPackagesFile);
             if (packs != null)
             {
                 packages = packs.packages;

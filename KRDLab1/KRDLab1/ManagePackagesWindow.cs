@@ -13,7 +13,6 @@ namespace KRDLab1
     public partial class ManagePackagesWindow : Form
     {
         List<Package> listPackages;
-        string path = "Packages.xml";
         public ManagePackagesWindow()
         {
             InitializeComponent();
@@ -25,21 +24,6 @@ namespace KRDLab1
         {
 
         }
-
-        private void buttonRemove_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewPackages.SelectedRows.Count > 0)
-            {
-                ManagePackage.RemovePackage(getSelectedPackage(), path);
-                listPackages.Remove(getSelectedPackage());
-                refreshDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Najpierw musisz wybrać użytkownika którego chcesz usunąć.");
-            }
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
 
@@ -49,6 +33,20 @@ namespace KRDLab1
         {
 
         }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPackages.SelectedRows.Count > 0)
+            {
+                ManagePackage.RemovePackage(getSelectedPackage(), GlobalVar.pathPackagesFile);
+                listPackages.Remove(getSelectedPackage());
+                refreshDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Najpierw musisz wybrać użytkownika którego chcesz usunąć.");
+            }
+        }       
         private Package getSelectedPackage()
         {
             return listPackages[(int)findPosition(dataGridViewPackages.SelectedRows)];
@@ -59,7 +57,7 @@ namespace KRDLab1
         }
         private void loadData()
         {
-            Packages packs = ManagePackage.ReadListPackages(path);
+            Packages packs = ManagePackage.ReadListPackages(GlobalVar.pathPackagesFile);
             if (packs != null)
             {
                 listPackages = packs.packages;
