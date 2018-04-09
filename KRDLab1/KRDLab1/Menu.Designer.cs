@@ -74,6 +74,7 @@
             this.Controls.Add(this.buttonLogOut);
             this.Controls.Add(this.buttonManagePackages);
             this.Controls.Add(this.buttonManageUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Menu";
             this.Text = "Menu";
             this.ResumeLayout(false);

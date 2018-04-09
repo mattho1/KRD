@@ -70,9 +70,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 473);
             this.Controls.Add(this.dataGridViewDataAboutPackagesCustomer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ShowPackages";
             this.Text = "ShowPackages";
-            this.Load += new System.EventHandler(this.ShowPackages_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataAboutPackagesCustomer)).EndInit();
             this.ResumeLayout(false);
 

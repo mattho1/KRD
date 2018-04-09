@@ -12,7 +12,7 @@ namespace KRDLab1
 {
     public partial class ChangeStatus : Form
     {
-        string status;
+        PakageStatus status;
         List<Package> packageList;
         Package package;
         public ChangeStatus(List<Package> _packageList, Package _package)
@@ -27,16 +27,16 @@ namespace KRDLab1
         {
             switch(package.status)
             {
-                case "dostarczono":
+                case PakageStatus.Delivered:
                     radioButtonDelivered.Checked = true;
                     break;
-                case "w drodze":
+                case PakageStatus.OnTheWay:
                     radioButtonOnTheWay.Checked = true;
                     break;
-                case "w magazynie":
+                case PakageStatus.InWarehouse:
                     radioButtonInWarehouse.Checked = true;
                     break;
-                case "w systemie":
+                case PakageStatus.InSystem:
                     radioButtonInSystem.Checked = true;
                     break;
             }
@@ -58,22 +58,22 @@ namespace KRDLab1
         }
         private void radioButtonDelivered_CheckedChanged(object sender, EventArgs e)
         {
-            status = radioButtonDelivered.Text;
+            status = PakageStatus.Delivered;
         }
 
         private void radioButtonOnTheWay_CheckedChanged(object sender, EventArgs e)
         {
-            status = radioButtonOnTheWay.Text;
+            status = PakageStatus.OnTheWay;
         }
 
         private void radioButtonInWarehouse_CheckedChanged(object sender, EventArgs e)
         {
-            status = radioButtonInWarehouse.Text;
+            status = PakageStatus.InWarehouse;
         }
 
         private void radioButtonInSystem_CheckedChanged(object sender, EventArgs e)
         {
-            status = radioButtonInSystem.Text;
+            status = PakageStatus.InSystem;
         }
     }
 }

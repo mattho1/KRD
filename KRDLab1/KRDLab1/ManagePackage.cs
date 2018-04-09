@@ -135,7 +135,13 @@ namespace KRDLab1
                 Packages packages = ((Packages)x.Deserialize(reader));
                 packages.packages = packages.packages.Where(p => p.owner.id == customerId).ToList();
                 reader.Close();
-                return packages;
+                if (packages.packages.Count > 0)
+                {
+                    return packages;
+                }else
+                {
+                    return null;
+                }
             }
             catch
             {

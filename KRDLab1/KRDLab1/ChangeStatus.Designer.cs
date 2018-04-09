@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBoxSelectionOfStatus = new System.Windows.Forms.GroupBox();
-            this.radioButtonDelivered = new System.Windows.Forms.RadioButton();
-            this.radioButtonOnTheWay = new System.Windows.Forms.RadioButton();
-            this.radioButtonInWarehouse = new System.Windows.Forms.RadioButton();
             this.radioButtonInSystem = new System.Windows.Forms.RadioButton();
+            this.radioButtonInWarehouse = new System.Windows.Forms.RadioButton();
+            this.radioButtonOnTheWay = new System.Windows.Forms.RadioButton();
+            this.radioButtonDelivered = new System.Windows.Forms.RadioButton();
             this.buttonChange = new System.Windows.Forms.Button();
             this.groupBoxSelectionOfStatus.SuspendLayout();
             this.SuspendLayout();
@@ -49,31 +49,18 @@
             this.groupBoxSelectionOfStatus.TabIndex = 0;
             this.groupBoxSelectionOfStatus.TabStop = false;
             // 
-            // radioButtonDelivered
+            // radioButtonInSystem
             // 
-            this.radioButtonDelivered.AutoSize = true;
-            this.radioButtonDelivered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButtonDelivered.Location = new System.Drawing.Point(24, 33);
-            this.radioButtonDelivered.Name = "radioButtonDelivered";
-            this.radioButtonDelivered.Size = new System.Drawing.Size(151, 29);
-            this.radioButtonDelivered.TabIndex = 0;
-            this.radioButtonDelivered.TabStop = true;
-            this.radioButtonDelivered.Text = "dostarczono";
-            this.radioButtonDelivered.UseVisualStyleBackColor = true;
-            this.radioButtonDelivered.CheckedChanged += new System.EventHandler(this.radioButtonDelivered_CheckedChanged);
-            // 
-            // radioButtonOnTheWay
-            // 
-            this.radioButtonOnTheWay.AutoSize = true;
-            this.radioButtonOnTheWay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButtonOnTheWay.Location = new System.Drawing.Point(24, 82);
-            this.radioButtonOnTheWay.Name = "radioButtonOnTheWay";
-            this.radioButtonOnTheWay.Size = new System.Drawing.Size(120, 29);
-            this.radioButtonOnTheWay.TabIndex = 1;
-            this.radioButtonOnTheWay.TabStop = true;
-            this.radioButtonOnTheWay.Text = "w drodze";
-            this.radioButtonOnTheWay.UseVisualStyleBackColor = true;
-            this.radioButtonOnTheWay.CheckedChanged += new System.EventHandler(this.radioButtonOnTheWay_CheckedChanged);
+            this.radioButtonInSystem.AutoSize = true;
+            this.radioButtonInSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.radioButtonInSystem.Location = new System.Drawing.Point(24, 178);
+            this.radioButtonInSystem.Name = "radioButtonInSystem";
+            this.radioButtonInSystem.Size = new System.Drawing.Size(139, 29);
+            this.radioButtonInSystem.TabIndex = 3;
+            this.radioButtonInSystem.TabStop = true;
+            this.radioButtonInSystem.Text = "w systemie";
+            this.radioButtonInSystem.UseVisualStyleBackColor = true;
+            this.radioButtonInSystem.CheckedChanged += new System.EventHandler(this.radioButtonInSystem_CheckedChanged);
             // 
             // radioButtonInWarehouse
             // 
@@ -88,18 +75,31 @@
             this.radioButtonInWarehouse.UseVisualStyleBackColor = true;
             this.radioButtonInWarehouse.CheckedChanged += new System.EventHandler(this.radioButtonInWarehouse_CheckedChanged);
             // 
-            // radioButtonInSystem
+            // radioButtonOnTheWay
             // 
-            this.radioButtonInSystem.AutoSize = true;
-            this.radioButtonInSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButtonInSystem.Location = new System.Drawing.Point(24, 178);
-            this.radioButtonInSystem.Name = "radioButtonInSystem";
-            this.radioButtonInSystem.Size = new System.Drawing.Size(139, 29);
-            this.radioButtonInSystem.TabIndex = 3;
-            this.radioButtonInSystem.TabStop = true;
-            this.radioButtonInSystem.Text = "w systemie";
-            this.radioButtonInSystem.UseVisualStyleBackColor = true;
-            this.radioButtonInSystem.CheckedChanged += new System.EventHandler(this.radioButtonInSystem_CheckedChanged);
+            this.radioButtonOnTheWay.AutoSize = true;
+            this.radioButtonOnTheWay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.radioButtonOnTheWay.Location = new System.Drawing.Point(24, 82);
+            this.radioButtonOnTheWay.Name = "radioButtonOnTheWay";
+            this.radioButtonOnTheWay.Size = new System.Drawing.Size(120, 29);
+            this.radioButtonOnTheWay.TabIndex = 1;
+            this.radioButtonOnTheWay.TabStop = true;
+            this.radioButtonOnTheWay.Text = "w drodze";
+            this.radioButtonOnTheWay.UseVisualStyleBackColor = true;
+            this.radioButtonOnTheWay.CheckedChanged += new System.EventHandler(this.radioButtonOnTheWay_CheckedChanged);
+            // 
+            // radioButtonDelivered
+            // 
+            this.radioButtonDelivered.AutoSize = true;
+            this.radioButtonDelivered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.radioButtonDelivered.Location = new System.Drawing.Point(24, 33);
+            this.radioButtonDelivered.Name = "radioButtonDelivered";
+            this.radioButtonDelivered.Size = new System.Drawing.Size(151, 29);
+            this.radioButtonDelivered.TabIndex = 0;
+            this.radioButtonDelivered.TabStop = true;
+            this.radioButtonDelivered.Text = "dostarczono";
+            this.radioButtonDelivered.UseVisualStyleBackColor = true;
+            this.radioButtonDelivered.CheckedChanged += new System.EventHandler(this.radioButtonDelivered_CheckedChanged);
             // 
             // buttonChange
             // 
@@ -119,6 +119,7 @@
             this.ClientSize = new System.Drawing.Size(458, 314);
             this.Controls.Add(this.buttonChange);
             this.Controls.Add(this.groupBoxSelectionOfStatus);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ChangeStatus";
             this.Text = "ChangeStatus";
             this.groupBoxSelectionOfStatus.ResumeLayout(false);

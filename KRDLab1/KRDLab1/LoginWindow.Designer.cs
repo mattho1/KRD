@@ -124,6 +124,7 @@
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.pictureBoxImage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginWindow";
             this.Text = "LoginWindow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginWindow_FormClosed);

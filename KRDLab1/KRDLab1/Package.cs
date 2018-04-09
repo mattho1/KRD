@@ -9,14 +9,14 @@ namespace KRDLab1
     public class Package
     {
         public int number { get; set; }
-        public string status { get; set; }
+        public PakageStatus status { get; set; }
         public DateTime hour { get; set; }
         public User owner { get; set; }
         public Package()
         {
 
         }
-        public Package(int _number, string _status, DateTime _hour, User _owner)
+        public Package(int _number, PakageStatus _status, DateTime _hour, User _owner)
         {
             number = _number;
             status = _status;

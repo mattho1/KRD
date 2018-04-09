@@ -17,9 +17,9 @@ namespace KRDLab1
         public string street { get; set; }
         public string login { get; set; }
         public string password { get; set; }
-        public string role { get; set; }
+        public UserRole role { get; set; }
         public User(){}
-        public User(int _id, string _name, string _surname, string _street, string _login, string _password, string _role)
+        public User(int _id, string _name, string _surname, string _street, string _login, string _password, UserRole _role)
         {
             id = _id;
             name = _name;

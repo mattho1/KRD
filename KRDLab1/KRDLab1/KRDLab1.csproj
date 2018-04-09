@@ -118,6 +118,7 @@
       <DependentUpon>ShowPackages.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="UserRole.cs" />
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="AddModify.resx">
       <DependentUpon>AddModify.cs</DependentUpon>

@@ -28,10 +28,14 @@ namespace KRDLab1
 
         private void loadStatus()
         {
-            List<String> statusList = new List<string>{ "dostarczono", "w drodze", "w magazynie", "w systemie"};
+            List<PakageStatus> statusList = new List<PakageStatus> { PakageStatus.Delivered, PakageStatus.InSystem, PakageStatus.InWarehouse, PakageStatus.OnTheWay};
             foreach (var status in statusList)
             {
                 comboBoxStatus.Items.Add(status);
+            }
+            if (isModifyWindow)
+            {
+                comboBoxStatus.SelectedItem = package.status;
             }
         }
 
@@ -39,23 +43,29 @@ namespace KRDLab1
         {
             if (package != null)
             {
-                fillFields();
-                buttonAddOrModify.Text = "Modyfikuj";
-                isModifyWindow = true;
+                setWindowAsModifyWindow();
             }
             else
             {
-                buttonAddOrModify.Text = "Dodaj";
-                isModifyWindow = false;
+                setWindowAsAddWindow();
             }
+        }
+        private void setWindowAsAddWindow()
+        {
+            buttonAddOrModify.Text = "Dodaj";
+            isModifyWindow = false;
+        }
+        private void setWindowAsModifyWindow()
+        {
+            fillFields();
+            buttonAddOrModify.Text = "Modyfikuj";
+            isModifyWindow = true;
         }
 
         private void fillFields()
         {
             numericUpDownNumberPackage.Value = package.number;
-            comboBoxStatus.Text = package.status;
-            numericUpDownHour.Value = package.hour.Hour;
-            numericUpDownMinute.Value = package.hour.Minute;
+            comboBoxStatus.Text = package.status.ToString();
             comboBoxClient.Text = preprocessDataAboutClient(package.owner);
         }
 
@@ -65,22 +75,11 @@ namespace KRDLab1
             {
                 if (isModifyWindow)
                 {
-                    if (dataWasChanged())
-                    {
-                        Package newPackage = new Package((int)numericUpDownNumberPackage.Value, comboBoxStatus.Text, createHour(), getClient());
-                        ManagePackage.ModifyPackage(package, newPackage, GlobalVar.pathPackagesFile);
-                        packageList[packageList.FindIndex(x => ((x.number == package.number)))] = newPackage;
-                        MessageBox.Show("Zmieniono dane paczki");
-                    }
-                    Close();
+                    modifyPackage();
                 }
                 else
                 {
-                    Package newPackage = new Package((int)numericUpDownNumberPackage.Value, comboBoxStatus.Text, createHour(), getClient());
-                    ManagePackage.AddPackage(newPackage, GlobalVar.pathPackagesFile);
-                    packageList.Add(newPackage);
-                    MessageBox.Show("Dodano paczkę");
-                    Close();
+                    addPackage();
                 }
             }
             else
@@ -95,9 +94,24 @@ namespace KRDLab1
                 }
             }
         }
-        private DateTime createHour()
+        private void addPackage()
         {
-            return new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, (int)numericUpDownHour.Value, (int)numericUpDownMinute.Value, 0);
+            Package newPackage = new Package((int)numericUpDownNumberPackage.Value, (PakageStatus)comboBoxStatus.SelectedItem, DateTime.Now, getClient());
+            ManagePackage.AddPackage(newPackage, GlobalVar.pathPackagesFile);
+            packageList.Add(newPackage);
+            MessageBox.Show("Dodano paczkę");
+            Close();
+        }
+        private void modifyPackage()
+        {
+            if (dataWasChanged())
+            {
+                Package newPackage = new Package((int)numericUpDownNumberPackage.Value, (PakageStatus)comboBoxStatus.SelectedItem, DateTime.Now, getClient());
+                ManagePackage.ModifyPackage(package, newPackage, GlobalVar.pathPackagesFile);
+                packageList[packageList.FindIndex(x => ((x.number == package.number)))] = newPackage;
+                MessageBox.Show("Zmieniono dane paczki");
+            }
+            Close();
         }
         private User getClient()
         {
@@ -113,7 +127,7 @@ namespace KRDLab1
         }
         private bool dataWasChanged()
         {
-            if ((int)numericUpDownNumberPackage.Value == package.number && comboBoxStatus.Text.Equals(package.status) && createHour().Equals(package.hour) && getClient().id == package.owner.id)
+            if ((int)numericUpDownNumberPackage.Value == package.number && comboBoxStatus.Text.Equals(package.status.ToString()) && getClient().id == package.owner.id)
             {
                 return false;
             }
@@ -130,14 +144,15 @@ namespace KRDLab1
 
         private bool isNumberAvailable()
         {
-            if(isModifyWindow && ((int)numericUpDownNumberPackage.Value != package.number))
+            if (isModifyWindow && (int)numericUpDownNumberPackage.Value == package.number)
             {
-                foreach (Package pack in packageList)
+                return true;
+            }
+            foreach (Package pack in packageList)
+            {
+                if (pack.number == (int)numericUpDownNumberPackage.Value)
                 {
-                    if (pack.number == (int)numericUpDownNumberPackage.Value)
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
             return true;
@@ -154,11 +169,6 @@ namespace KRDLab1
         private string preprocessDataAboutClient(User client)
         {
             return client.id + " " + client.name + " " + client.surname;
-        }
-        private void buttonActualTime_Click(object sender, EventArgs e)
-        {
-            numericUpDownHour.Value = DateTime.Now.Hour;
-            numericUpDownMinute.Value = DateTime.Now.Minute;
         }
 
         private void buttonAddNewClient_Click(object sender, EventArgs e)

@@ -14,18 +14,18 @@ namespace KRDLab1
     {
         ShowData windowShowData;
         ManagePackagesWindow windowManagePackages;
-        string userRole;
+        UserRole userRole;
         public Menu()
         {
             InitializeComponent();
-            userRole = "Kurier";
+            userRole = UserRole.Courier;
             buttonManageUsers.Enabled = false;
             login();
         }
-        public void setUserRole(string role)
+        public void setUserRole(UserRole role)
         {
             userRole = role;
-            if(role.Equals("Administrator"))
+            if(role.Equals(UserRole.Administrator))
             {
                 buttonManageUsers.Enabled = true;
             }else

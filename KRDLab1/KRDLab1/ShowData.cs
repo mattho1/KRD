@@ -54,9 +54,15 @@ namespace KRDLab1
         {
             if (dataGridViewData.SelectedRows.Count > 0)
             {
-                ManageUsers.RemoveUser(getSelectedUser(), GlobalVar.pathUsersFile);
-                userList.Remove(getSelectedUser());
-                refreshDataGridView();
+                if (ManagePackage.ReadListPackages(getSelectedUser().id, GlobalVar.pathPackagesFile)==null)
+                {
+                    ManageUsers.RemoveUser(getSelectedUser(), GlobalVar.pathUsersFile);
+                    userList.Remove(getSelectedUser());
+                    refreshDataGridView();
+                }else
+                {
+                    MessageBox.Show("Nie można usunąć użytkownika, który ma paczki w systemie.");
+                }
             }
             else
             {

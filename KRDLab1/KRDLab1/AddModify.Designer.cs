@@ -175,6 +175,7 @@
             this.Controls.Add(this.textBoxStreet);
             this.Controls.Add(this.textBoxSurname);
             this.Controls.Add(this.textBoxName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddModify";
             this.Text = "Site title";
             this.ResumeLayout(false);

@@ -40,10 +40,5 @@ namespace KRDLab1
                 dataGridViewDataAboutPackagesCustomer.Rows.Add(package.number , package.status, package.hour);
             }
         }
-
-        private void ShowPackages_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

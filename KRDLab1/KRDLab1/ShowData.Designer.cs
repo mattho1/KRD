@@ -151,6 +151,7 @@
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ShowData";
             this.Text = "SiteTitle";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).EndInit();

@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagePackagesWindow));
             this.dataGridViewPackages = new System.Windows.Forms.DataGridView();
-            this.buttonChangeStatus = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonRemove = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
             this.ColumnNumberPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClientSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonChangeStatus = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPackages)).BeginInit();
@@ -59,6 +59,36 @@
             this.dataGridViewPackages.RowTemplate.Height = 24;
             this.dataGridViewPackages.Size = new System.Drawing.Size(876, 280);
             this.dataGridViewPackages.TabIndex = 0;
+            // 
+            // ColumnNumberPackage
+            // 
+            this.ColumnNumberPackage.HeaderText = "Nr paczki";
+            this.ColumnNumberPackage.Name = "ColumnNumberPackage";
+            this.ColumnNumberPackage.Width = 120;
+            // 
+            // ColumnStatus
+            // 
+            this.ColumnStatus.HeaderText = "Status";
+            this.ColumnStatus.Name = "ColumnStatus";
+            this.ColumnStatus.Width = 120;
+            // 
+            // ColumnHour
+            // 
+            this.ColumnHour.HeaderText = "Godzina";
+            this.ColumnHour.Name = "ColumnHour";
+            this.ColumnHour.Width = 160;
+            // 
+            // ColumnClientName
+            // 
+            this.ColumnClientName.HeaderText = "Imie klienta";
+            this.ColumnClientName.Name = "ColumnClientName";
+            this.ColumnClientName.Width = 150;
+            // 
+            // ColumnClientSurname
+            // 
+            this.ColumnClientSurname.HeaderText = "Nazwisko klienta";
+            this.ColumnClientSurname.Name = "ColumnClientSurname";
+            this.ColumnClientSurname.Width = 150;
             // 
             // buttonChangeStatus
             // 
@@ -104,36 +134,6 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // ColumnNumberPackage
-            // 
-            this.ColumnNumberPackage.HeaderText = "Nr paczki";
-            this.ColumnNumberPackage.Name = "ColumnNumberPackage";
-            this.ColumnNumberPackage.Width = 120;
-            // 
-            // ColumnStatus
-            // 
-            this.ColumnStatus.HeaderText = "Status";
-            this.ColumnStatus.Name = "ColumnStatus";
-            this.ColumnStatus.Width = 120;
-            // 
-            // ColumnHour
-            // 
-            this.ColumnHour.HeaderText = "Godzina";
-            this.ColumnHour.Name = "ColumnHour";
-            this.ColumnHour.Width = 160;
-            // 
-            // ColumnClientName
-            // 
-            this.ColumnClientName.HeaderText = "Imie klienta";
-            this.ColumnClientName.Name = "ColumnClientName";
-            this.ColumnClientName.Width = 150;
-            // 
-            // ColumnClientSurname
-            // 
-            this.ColumnClientSurname.HeaderText = "Nazwisko klienta";
-            this.ColumnClientSurname.Name = "ColumnClientSurname";
-            this.ColumnClientSurname.Width = 150;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -164,6 +164,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonChangeStatus);
             this.Controls.Add(this.dataGridViewPackages);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ManagePackagesWindow";
             this.Text = "ManagePackagesWindow";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPackages)).EndInit();

@@ -50,7 +50,7 @@ namespace KRDLab1
         {
             foreach (var user in userList)
             {
-                if (textBoxLogin.Text.Equals(user.login) && textBoxPassword.Text.Equals(user.password))
+                if (textBoxLogin.Text.Equals(user.login) && textBoxPassword.Text.Equals(user.password) && !user.role.Equals(UserRole.Client))
                 {
                     this.user = user;
                     return true;

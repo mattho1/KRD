@@ -45,32 +45,55 @@ namespace KRDLab1
             {
                 if (isModifyWindow)
                 {
-                    User user = new User(userList[position].id, textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, comboBoxRole.Text);
-                    ManageUsers.ModifyUser(userList[position], user, GlobalVar.pathUsersFile);
-                    userList[position] = user;
-                    MessageBox.Show("Zmieniono dane użytkownika");
-                    Close();
+                    modifyUser();
                 }
                 else
                 {
-                    User user = new User(generateIdNumber(), textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, comboBoxRole.Text);
-                    ManageUsers.AddUser(user, GlobalVar.pathUsersFile);
-                    userList.Add(user);
-                    if (isClient)
-                    {
-                        MessageBox.Show("Dodano klienta");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Dodano użytkownika");
-                    }
-                    Close();
+                    addUser();
                 }
             }else
             {
                 MessageBox.Show("Wprowadź wszystkie dane");
             }
         }
+        private void addUser()
+        {
+            User user = new User(generateIdNumber(), textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, (UserRole)comboBoxRole.SelectedItem);
+            ManageUsers.AddUser(user, GlobalVar.pathUsersFile);
+            userList.Add(user);
+            if (isClient)
+            {
+                MessageBox.Show("Dodano klienta");
+            }
+            else
+            {
+                MessageBox.Show("Dodano użytkownika");
+            }
+            Close();
+        }
+        private void modifyUser()
+        {
+            if (dataWasChanged())
+            {
+                User user = new User(userList[position].id, textBoxName.Text, textBoxSurname.Text, textBoxStreet.Text, textBoxLogin.Text, textBoxPassword.Text, (UserRole)comboBoxRole.SelectedItem);
+                ManageUsers.ModifyUser(userList[position], user, GlobalVar.pathUsersFile);
+                userList[position] = user;
+                MessageBox.Show("Zmieniono dane użytkownika");
+            }
+            Close();
+        }
+
+        private bool dataWasChanged()
+        {
+            if (userList[position].login.Equals(textBoxLogin.Text) && textBoxName.Text.Equals(userList[position].name)
+                && textBoxPassword.Text.Equals(userList[position].password) && textBoxSurname.Text.Equals(userList[position].surname)
+                && textBoxStreet.Text.Equals(userList[position].street) && comboBoxRole.Text.Equals(userList[position].role.ToString()) )
+            {
+                return false;
+            }
+            return true;
+        }
+
         private bool validation()
         {
             if (textBoxName.Text.Equals("") || textBoxName.Text.Equals("") || textBoxSurname.Text.Equals("") || textBoxStreet.Text.Equals("") || textBoxLogin.Text.Equals("") || textBoxPassword.Text.Equals("") || comboBoxRole.Text.Equals(""))
@@ -86,20 +109,28 @@ namespace KRDLab1
             textBoxStreet.Text = userList[position].street;
             textBoxLogin.Text = userList[position].login;
             textBoxPassword.Text = userList[position].password;
-            comboBoxRole.Text = userList[position].role;
+            comboBoxRole.Text = userList[position].role.ToString();
+            comboBoxRole.SelectedItem = userList[position].role;
         }
         private void loadRoles()
         {
             if (!isClient)
             {
-                comboBoxRole.Items.Add("Administrator");
-                comboBoxRole.Items.Add("Kurier");
-                comboBoxRole.Items.Add("Klient");
+                comboBoxRole.Items.Add(UserRole.Administrator);
+                comboBoxRole.Items.Add(UserRole.Courier);
+                comboBoxRole.Items.Add(UserRole.Client);
             }else
             {
+                comboBoxRole.Items.Add(UserRole.Client);
                 comboBoxRole.Enabled = false;
             }
-            comboBoxRole.Text = "Klient";
+            if (isModifyWindow)
+            {
+                comboBoxRole.SelectedItem = userList[position].role;
+            }else
+            {
+                comboBoxRole.SelectedItem = UserRole.Client;
+            }
         }
         private int generateIdNumber()
         {

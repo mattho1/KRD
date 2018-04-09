@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace KRDLab1
 {
-    public enum PakageStatus
-    { 
-        Delivered = 0,
-        OnTheWay,
-        InWarehouse,
-        InSystem
+    public enum UserRole
+    {
+        Client = 0,
+        Administrator,
+        Courier
     }
 }
