@@ -65,6 +65,10 @@ namespace KRDLab1
                 if (File.Exists(path))
                 {
                     packs = ReadListPackages(path);
+                    if (packs == null)
+                    {
+                        packs = new Packages();
+                    }
                 }
                 else
                 {
@@ -115,11 +119,22 @@ namespace KRDLab1
         {
             try
             {
-                XmlSerializer x = new XmlSerializer(typeof(Packages));
-                StreamReader reader = new StreamReader(path);
-                Packages packages = (Packages)x.Deserialize(reader);
-                reader.Close();
-                return packages;
+                if (File.Exists(path))
+                {
+                    XmlSerializer x = new XmlSerializer(typeof(Packages));
+                    StreamReader reader = new StreamReader(path);
+                    Packages packages = (Packages)x.Deserialize(reader);
+                    reader.Close();
+                    return packages;
+                }
+                else
+                {
+                    XmlSerializer x = new XmlSerializer(typeof(Packages));
+                    StreamWriter writer = new StreamWriter(path);
+                    x.Serialize(writer, null);
+                    writer.Close();
+                    return null;
+                }
             }
             catch
             {
@@ -130,16 +145,27 @@ namespace KRDLab1
         {
             try
             {
-                XmlSerializer x = new XmlSerializer(typeof(Packages));
-                StreamReader reader = new StreamReader(path);
-                Packages packages = ((Packages)x.Deserialize(reader));
-                packages.packages = packages.packages.Where(p => p.owner.id == customerId).ToList();
-                reader.Close();
-                if (packages.packages.Count > 0)
+                if (File.Exists(path))
                 {
-                    return packages;
+                    XmlSerializer x = new XmlSerializer(typeof(Packages));
+                    StreamReader reader = new StreamReader(path);
+                    Packages packages = ((Packages)x.Deserialize(reader));
+                    packages.packages = packages.packages.Where(p => p.owner.id == customerId).ToList();
+                    reader.Close();
+                    if (packages.packages.Count > 0)
+                    {
+                        return packages;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }else
                 {
+                    XmlSerializer x = new XmlSerializer(typeof(Packages));
+                    StreamWriter writer = new StreamWriter(path);
+                    x.Serialize(writer, null);
+                    writer.Close();
                     return null;
                 }
             }
