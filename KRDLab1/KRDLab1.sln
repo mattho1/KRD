@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRDLab1", "KRDLab1\KRDLab1.csproj", "{08CF8239-B1E1-4AA6-A14B-6792F18F0339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRDLab1Tests", "KRDLab1Tests\KRDLab1Tests.csproj", "{1929BA1B-AF26-4E33-A488-08296166B83E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationKRDWebApi", "WebApplicationKRDWebApi\WebApplicationKRDWebApi.csproj", "{477B548C-6667-4669-A668-E264B262D76C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{08CF8239-B1E1-4AA6-A14B-6792F18F0339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08CF8239-B1E1-4AA6-A14B-6792F18F0339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08CF8239-B1E1-4AA6-A14B-6792F18F0339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1929BA1B-AF26-4E33-A488-08296166B83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1929BA1B-AF26-4E33-A488-08296166B83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1929BA1B-AF26-4E33-A488-08296166B83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1929BA1B-AF26-4E33-A488-08296166B83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477B548C-6667-4669-A668-E264B262D76C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477B548C-6667-4669-A668-E264B262D76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477B548C-6667-4669-A668-E264B262D76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477B548C-6667-4669-A668-E264B262D76C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF430110-F735-4391-A8E9-9970D52C2F19}
 	EndGlobalSection
 EndGlobal

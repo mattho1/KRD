@@ -19,13 +19,26 @@ namespace KRDLab1
         }
         public void Add(User user)
         {
-            users.Add(user);
+            if(user != null)
+            {
+                users.Add(user);
+            }else
+            {
+                new Exception();
+            }
+            
         }
         public void Add(List<User> uss)
         {
-            foreach (User user in uss)
+            if (uss != null)
             {
-                users.Add(user);
+                foreach (User user in uss)
+                {
+                    users.Add(user);
+                }
+            }else
+            {
+                new Exception();
             }
         }
         internal void Remove(User user)
