@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KRDLab1
 {
-    public class Users
+    public class Users: IUsers
     {
         public List<User> users { get; set; }
         public Users()
@@ -15,7 +15,14 @@ namespace KRDLab1
         }
         public Users(List<User> us)
         {
-            users = us;
+            if(us != null)
+            {
+                users = us;
+            }
+            else
+            {
+                throw new ArgumentException($"List users can't be empty.");
+            }
         }
         public void Add(User user)
         {
@@ -24,7 +31,7 @@ namespace KRDLab1
                 users.Add(user);
             }else
             {
-                new Exception();
+                throw new ArgumentException($"User must exist.");
             }
             
         }
@@ -38,13 +45,27 @@ namespace KRDLab1
                 }
             }else
             {
-                new Exception();
+                throw new ArgumentException($"Users list must exist.");
             }
         }
-        internal void Remove(User user)
+        public void Remove(User user)
         {
-            var item = users.SingleOrDefault(r => r.name == user.name && r.surname == user.surname);
-            users.Remove(item);
+            if (user != null)
+            {
+                var item = users.SingleOrDefault(r => r.name == user.name && r.surname == user.surname);
+                if (item != null)
+                {
+                    users.Remove(item);
+                }
+                else
+                {
+                    throw new ArgumentException($"There isn't user on the list.");
+                }
+            }
+            else
+            {
+                throw new ArgumentException($"User can't not exist.");
+            }            
         }
     }
 }

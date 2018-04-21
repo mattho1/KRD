@@ -80,6 +80,8 @@
       <DependentUpon>ChangeStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalVar.cs" />
+    <Compile Include="Interfaces\IPackages.cs" />
+    <Compile Include="Interfaces\IUsers.cs" />
     <Compile Include="LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
