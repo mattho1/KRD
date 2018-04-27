@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationKRDWebApi", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectKRDTests", "UnitTestProjectKRDTests\UnitTestProjectKRDTests.csproj", "{BD2CD6D2-3E7E-4D22-90E2-CBAEE4209189}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryCommon", "ClassLibraryCommon\ClassLibraryCommon.csproj", "{C21E0395-B03B-4AE1-A056-9599F4404B84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryInfrastructure", "ClassLibraryInfrastructure\ClassLibraryInfrastructure.csproj", "{F2124C79-40D3-40A2-9012-17437A3D1F36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{BD2CD6D2-3E7E-4D22-90E2-CBAEE4209189}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD2CD6D2-3E7E-4D22-90E2-CBAEE4209189}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD2CD6D2-3E7E-4D22-90E2-CBAEE4209189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21E0395-B03B-4AE1-A056-9599F4404B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21E0395-B03B-4AE1-A056-9599F4404B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21E0395-B03B-4AE1-A056-9599F4404B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21E0395-B03B-4AE1-A056-9599F4404B84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2124C79-40D3-40A2-9012-17437A3D1F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2124C79-40D3-40A2-9012-17437A3D1F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2124C79-40D3-40A2-9012-17437A3D1F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2124C79-40D3-40A2-9012-17437A3D1F36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
