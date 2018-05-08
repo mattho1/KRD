@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClassLibraryInfrastructure.DataAccess;
 using WebApplicationKRDWebApi.Models;
 
 namespace WebApplicationKRDWebApi.Controllers
@@ -20,11 +21,18 @@ namespace WebApplicationKRDWebApi.Controllers
             new Package(6, PakageStatus.Delivered, new DateTime(2018,4,21,14,55,0), UserController._users[4])
         };
 
+        private CourierApplicationContext context;
+        public PackageController(CourierApplicationContext _context)
+        {
+            context = _context;
+        }
+
         [HttpGet]
         [Route("")]
         public IActionResult GetAll()
         {
-            return Ok(new { packages = _packages });
+            return Ok(context.Packages.ToList());
+            //return Ok(new { packages = _packages });
         }
 
         [HttpGet]
